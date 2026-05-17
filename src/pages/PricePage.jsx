@@ -1,24 +1,33 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Navbar from "../components/Navbar";
 import Item from "../components/Item";
 
-import { priceSelectedData } from "../data/mockData";
+import { getPriceSelectedItems } from "../apis/itemApi";
 
 function PricePage() {
   const [low, setLow] = useState("");
   const [high, setHigh] = useState("");
 
-  // 실제 검색 결과 저장
-  const [filteredItems, setFilteredItems] = useState(
-    priceSelectedData.items
-  );
+  const [allItems, setAllItems] = useState([]);
+  const [filteredItems, setFilteredItems] = useState([]);
+
+  useEffect(() => {
+    const fetchItems = async () => {
+      const data = await getPriceSelectedItems();
+
+      setAllItems(data.items);
+      setFilteredItems(data.items);
+    };
+
+    fetchItems();
+  }, []);
 
   const handleSearch = () => {
     const lowPrice = low === "" ? 0 : Number(low);
     const highPrice = high === "" ? Infinity : Number(high);
 
-    const result = priceSelectedData.items.filter((item) => {
+    const result = allItems.filter((item) => {
       return item.price >= lowPrice && item.price <= highPrice;
     });
 

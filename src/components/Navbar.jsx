@@ -34,7 +34,10 @@ function Navbar() {
           </button>
         </div>
 
-        <button className="rounded-lg border border-blue-500 px-4 py-2 text-blue-500">
+        <button
+          onClick={() => navigate("/admin")}
+          className="rounded-lg border border-blue-500 px-4 py-2 text-blue-500"
+        >
           관리자
         </button>
       </div>

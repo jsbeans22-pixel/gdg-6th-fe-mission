@@ -1,12 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Item from "../components/Item";
-import { sortedData } from "../data/mockData";
+import { getSortedItems } from "../apis/itemApi";
 
 function SortPage() {
   const [sortType, setSortType] = useState("");
+  const [items, setItems] = useState([]);
 
-  const sortedItems = [...sortedData].sort((a, b) => {
+  useEffect(() => {
+    const fetchItems = async () => {
+      const data = await getSortedItems();
+      setItems(data);
+    };
+
+    fetchItems();
+  }, []);
+
+  const sortedItems = [...items].sort((a, b) => {
     if (sortType === "name") {
       return a.itemName.localeCompare(b.itemName);
     }
@@ -22,7 +32,7 @@ function SortPage() {
     <div className="min-h-screen bg-white text-gray-500">
       <Navbar />
 
-      <main className="mx-auto mt-24 w-[700px]">
+      <main className="mx-auto mt-24 w-[900px]">
         <select
           value={sortType}
           onChange={(e) => setSortType(e.target.value)}
@@ -33,13 +43,13 @@ function SortPage() {
           <option value="price">가격순</option>
         </select>
 
-        <p className="mb-2 text-right text-xl text-black underline">
+        <p className="mb-4 text-right text-2xl text-black underline">
           내 구매 내역
         </p>
 
-        <div className="flex flex-col gap-8">
-          {sortedItems.map((item, index) => (
-            <Item key={`${item.id}-${index}`} item={item} />
+        <div className="flex flex-col gap-10">
+          {sortedItems.map((item) => (
+            <Item key={item.id} item={item} />
           ))}
         </div>
 

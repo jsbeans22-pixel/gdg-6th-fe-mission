@@ -1,18 +1,34 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
 import Navbar from "../components/Navbar";
 import Item from "../components/Item";
-import { categoryData } from "../data/mockData";
+
+import { getCategoryItems } from "../apis/itemApi";
 
 function CategoryPage() {
+  const [items, setItems] = useState([]);
+
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   const categories = ["의류", "전자기기", "화장품", "식품"];
+
+  useEffect(() => {
+    const fetchItems = async () => {
+      const data = await getCategoryItems();
+      setItems(data);
+    };
+
+    fetchItems();
+  }, []);
 
   return (
     <div className="min-h-screen bg-white text-gray-500">
       <Navbar />
 
-      <main className="mx-auto mt-20 w-[700px]">
+      <main className="mx-auto mt-20 w-[900px]">
+
+        {/* 카테고리 선택 */}
         <div className="relative mb-24 w-[220px]">
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -28,9 +44,14 @@ function CategoryPage() {
                   key={category}
                   onClick={() => {
                     console.log(`${category} 카테고리 클릭`);
+                    setSelectedCategory(category);
                     setIsOpen(false);
                   }}
-                  className="block h-12 w-full border-b border-gray-400 px-5 text-left text-lg last:border-b-0"
+                  className={`block h-12 w-full border-b border-gray-400 px-5 text-left text-lg last:border-b-0 ${
+                    selectedCategory === category
+                      ? "bg-blue-500 text-white"
+                      : "bg-white text-black"
+                  }`}
                 >
                   {category}
                 </button>
@@ -39,17 +60,23 @@ function CategoryPage() {
           )}
         </div>
 
-        <p className="mb-2 text-right text-black underline">내 구매 내역</p>
+        {/* 구매 내역 */}
+        <p className="mb-4 text-right text-2xl text-black underline">
+          내 구매 내역
+        </p>
 
-        <div className="flex flex-col gap-6">
-          {categoryData.map((item) => (
+        {/* 상품 리스트 */}
+        <div className="flex flex-col gap-10">
+          {items.map((item) => (
             <Item key={item.id} item={item} />
           ))}
         </div>
 
-        <button className="mt-24 h-14 w-full rounded-lg border-2 border-blue-500 text-lg text-blue-500">
+        {/* 구매 버튼 */}
+        <button className="mt-20 h-14 w-full rounded-xl border-2 border-blue-500 text-xl text-blue-500">
           장바구니 구매하기
         </button>
+
       </main>
     </div>
   );
