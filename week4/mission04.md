@@ -26,3 +26,4 @@ components 파일에 ProductList.jsx를 만들어
 
 이정도로 볼 수 있다.
 
+commit 기록도 남겨놓았다.

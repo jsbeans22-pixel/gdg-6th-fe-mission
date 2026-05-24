@@ -82,3 +82,4 @@ const [isAdded, setIsAdded] = useState(false);
 
 따라서 다른 컴포넌트에서 장바구니 상태를 알 수 있게 하도록 했다.
 
+commit 기록도 남겨놓았다.
