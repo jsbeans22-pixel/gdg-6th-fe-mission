@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Item from "../components/Item";
 import { getSortedItems } from "../apis/itemApi";
+import ProductList from "../components/ProductList";
 
 function SortPage() {
   const [sortType, setSortType] = useState("");
@@ -47,11 +48,7 @@ function SortPage() {
           내 구매 내역
         </p>
 
-        <div className="flex flex-col gap-10">
-          {sortedItems.map((item) => (
-            <Item key={item.id} item={item} />
-          ))}
-        </div>
+        <ProductList items={items} />
 
         <button className="sticky bottom-10 mt-10 h-14 w-full rounded-lg border-2 border-blue-500 bg-white text-lg text-blue-500">
           장바구니 구매하기

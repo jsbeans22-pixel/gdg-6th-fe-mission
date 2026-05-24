@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Item from "../components/Item";
 
 import { getProducts } from "../apis/itemApi";
+import ProductList from "../components/ProductList";
 
 function CategoryPage() {
   const [items, setItems] = useState([]);
@@ -66,11 +67,7 @@ function CategoryPage() {
         </p>
 
         {/* 상품 리스트 */}
-        <div className="flex flex-col gap-10">
-          {items.map((item) => (
-            <Item key={item.id} item={item} />
-          ))}
-        </div>
+        <ProductList items={items} />
 
         {/* 구매 버튼 */}
         <button className="mt-20 h-14 w-full rounded-xl border-2 border-blue-500 text-xl text-blue-500">
