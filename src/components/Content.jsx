@@ -5,7 +5,6 @@ function Content() {
 
   return (
     <main className="flex flex-1 flex-col items-center px-10">
-
       {/* 검색 영역 */}
       <div className="mt-24 flex w-full justify-center gap-5">
         <input
@@ -22,17 +21,10 @@ function Content() {
 
       {/* 빈 결과 영역 */}
       <div className="mt-40 flex flex-col items-center">
-        <img
-          src="/gdg-logo.svg"
-          alt="GDG 로고"
-          className="w-72 opacity-20"
-        />
+        <img src="/gdg-logo.svg" alt="GDG 로고" className="w-72 opacity-20" />
 
-        <p className="mt-6 text-xl text-gray-400">
-          검색 결과가 없습니다.
-        </p>
+        <p className="mt-6 text-xl text-gray-400">검색 결과가 없습니다.</p>
       </div>
-
     </main>
   );
 }

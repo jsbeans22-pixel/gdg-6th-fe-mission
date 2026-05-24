@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Item from "../components/Item";
 
-import { getCategoryItems } from "../apis/itemApi";
+import { getProducts } from "../apis/itemApi";
 
 function CategoryPage() {
   const [items, setItems] = useState([]);
@@ -15,7 +15,8 @@ function CategoryPage() {
 
   useEffect(() => {
     const fetchItems = async () => {
-      const data = await getCategoryItems();
+      // const data = await getCategoryItems();
+      const data = await getProducts();
       setItems(data);
     };
 
@@ -27,7 +28,6 @@ function CategoryPage() {
       <Navbar />
 
       <main className="mx-auto mt-20 w-[900px]">
-
         {/* 카테고리 선택 */}
         <div className="relative mb-24 w-[220px]">
           <button
@@ -76,7 +76,6 @@ function CategoryPage() {
         <button className="mt-20 h-14 w-full rounded-xl border-2 border-blue-500 text-xl text-blue-500">
           장바구니 구매하기
         </button>
-
       </main>
     </div>
   );

@@ -1,19 +1,19 @@
 [
   {
     "id": 1,
-    "itemName": "가나",
+    "name": "가나",
     "price": 100,
     "quantity": 13
   },
   {
     "id": 2,
-    "itemName": "나다다",
+    "name": "나다다",
     "price": 300,
     "quantity": 13
   },
   {
     "id": 3,
-    "itemName": "다라",
+    "name": "다라",
     "price": 200,
     "quantity": 13
   }

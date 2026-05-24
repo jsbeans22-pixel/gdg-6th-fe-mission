@@ -18,7 +18,7 @@ function SortPage() {
 
   const sortedItems = [...items].sort((a, b) => {
     if (sortType === "name") {
-      return a.itemName.localeCompare(b.itemName);
+      return a.name.localeCompare(b.name);
     }
 
     if (sortType === "price") {

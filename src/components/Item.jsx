@@ -1,31 +1,35 @@
 import { useState } from "react";
+import useCartStore from "../store/cartStore";
 
 function Item({ item }) {
   const [count, setCount] = useState("");
-  const [isAdded, setIsAdded] = useState(false);
+
+  const cartItems = useCartStore((state) => state.cartItems);
+  const addCartItem = useCartStore((state) => state.addCartItem);
+
+  const isAdded = cartItems.some((cartItem) => cartItem.id === item.id);
 
   const handleCountChange = (e) => {
     const value = e.target.value;
 
-    // 숫자만 입력 가능
     if (/^\d*$/.test(value)) {
       setCount(value);
     }
   };
 
   const handleCartClick = () => {
-    setIsAdded(true);
+    addCartItem(item);
   };
 
   return (
     <div className="flex items-center justify-between rounded-lg border border-gray-400 p-6">
       <div className="text-left">
-        <h2 className="mb-6 font-bold text-black">{item.itemName}</h2>
+        <h2 className="mb-6 font-bold text-black">{item.name}</h2>
 
         <p>
           <span className="text-black">{item.price} 원</span>
           <span className="ml-4 text-sm text-gray-400">
-            남은 수량: {item.quantity}개
+            남은 수량: {item.stock}개
           </span>
         </p>
       </div>

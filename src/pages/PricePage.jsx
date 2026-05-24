@@ -16,8 +16,8 @@ function PricePage() {
     const fetchItems = async () => {
       const data = await getPriceSelectedItems();
 
-      setAllItems(data.items);
-      setFilteredItems(data.items);
+      setAllItems(data);
+      setFilteredItems(data);
     };
 
     fetchItems();
@@ -39,7 +39,6 @@ function PricePage() {
       <Navbar />
 
       <main className="mx-auto mt-16 w-[900px]">
-
         {/* 검색 영역 */}
         <div className="mb-20 flex justify-center gap-6">
           <input
@@ -80,7 +79,6 @@ function PricePage() {
         <button className="mt-20 h-14 w-full rounded-xl border-2 border-blue-500 text-xl text-blue-500">
           장바구니 구매하기
         </button>
-
       </main>
     </div>
   );

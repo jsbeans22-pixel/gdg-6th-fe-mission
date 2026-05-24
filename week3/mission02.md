@@ -1,9 +1,10 @@
 # 동기와 비동기는 무엇인가?
+
 - 동기 : 순서대로 명령을 처리한다.
-예를 들자면
-console.log("1");
-console.log("2");
-console.log("3");
+  예를 들자면
+  console.log("1");
+  console.log("2");
+  console.log("3");
 
 이 경우
 1 > 2 > 3 순서대로 명령을 처리한다.
@@ -17,10 +18,10 @@ console.log("3");
 console.log("시작");
 
 fetch("https://jsonplaceholder.typicode.com/todos/1")
-  .then((res) => res.json())
-  .then((data) => {
-    console.log(data);
-  });
+.then((res) => res.json())
+.then((data) => {
+console.log(data);
+});
 
 console.log("끝");
 
@@ -28,26 +29,27 @@ console.log("끝");
 
 이렇게 기다리는 시간 동안 다른 작업을 수행해 유저 입장에서 더욱 빠르게 페이지 로딩이 가능하다.
 
-비유를 하자면 
+비유를 하자면
 동기 : 컵라면에 물을 넣음 > 3분동안 가만히 기다림 > 3분 지나면 먹음
 비동기 : 컵라면에 물을 넣음 > 3분동안 다른 활동 함 > 3분 지나면 먹음
 이런 느낌인 것 같다.
 
 # Promise
+
 - 나중에 완료될 작업의 결과를 담아두는 객체
-인터넷 요청은 기다리는 시간이 걸리기 때문에
-일단 Promise라는 객체를 반환한다.
-Promise에는 세가지 상태( pending / fulfilled / rejected )가 있다.
-아직 데이터가 오지 않은 경우 pending,
-데이터가 온 경우 fulfilled,
-에러가 발생한 경우 rejected.
+  인터넷 요청은 기다리는 시간이 걸리기 때문에
+  일단 Promise라는 객체를 반환한다.
+  Promise에는 세가지 상태( pending / fulfilled / rejected )가 있다.
+  아직 데이터가 오지 않은 경우 pending,
+  데이터가 온 경우 fulfilled,
+  에러가 발생한 경우 rejected.
 
 에를 들자면
 
 const result = fetch("주소");
 console.log(result);
 
-이 경우, result에 데이터가 들어가는 것이 아니라 
+이 경우, result에 데이터가 들어가는 것이 아니라
 result가 Promise 객체이다.
 그리고 그 Promise 내부 상태는
 pending / fulfilled / rejected 중 하나이다.
@@ -60,21 +62,21 @@ Promise { <pending> }
 데이터가 오면
 Promise { <fulfilled>: value }
 
-
 데이터를 가져오는데 실패하면
 Promise { <rejected>: error }
 
 # async/await
+
 - await
-Promise 작업이 끝날 때까지 기다린 뒤 다음 줄을 실행한다.
-예를 들어,
-await가 없을 경우: 데이터 요청 > 아직 데이터 안왔는데 데이터 이용한 작업 수행
+  Promise 작업이 끝날 때까지 기다린 뒤 다음 줄을 실행한다.
+  예를 들어,
+  await가 없을 경우: 데이터 요청 > 아직 데이터 안왔는데 데이터 이용한 작업 수행
 
 에시 코드를 들자면
 function test() {
-  fetch("주소");
+fetch("주소");
 
-  console.log("작업 시작!");
+console.log("작업 시작!");
 }
 
 요청을 보내고 즉시 "작업 시작!"을 출력한다..
@@ -83,9 +85,9 @@ await 사용시: 데이터 요청 > 데이터가 올 때까지 기다림 > 데�
 
 에시 코드를 들자면
 async function test() {
-  await fetch("주소");
+await fetch("주소");
 
-  console.log("작업 시작!");
+console.log("작업 시작!");
 }
 
 요청을 보내고 > 응답이 오면 이때 "작업 시작!"을 출력한다!
@@ -95,15 +97,16 @@ async function test() {
 "이 함수는 비동기 함수"라고 알려주게 된다.
 
 - async
-"이 코드에서는 기다리는 것을 허용한다" 라고 알려주는 기능.
-즉 await 사용을 허가하는 기능이다.
+  "이 코드에서는 기다리는 것을 허용한다" 라고 알려주는 기능.
+  즉 await 사용을 허가하는 기능이다.
 
 # 콜백 함수
+
 특정 함수를 나중에 실행하도록 전달하는 함수
 예를 들자면
 
 setTimeout(() => {
-  console.log("3초 뒤 실행");
+console.log("3초 뒤 실행");
 }, 3000);
 
 3초 뒤에 함수가 실행된다.
@@ -111,7 +114,7 @@ setTimeout(() => {
 다른 예시를 들자면
 
 button.addEventListener("click", () => {
-  console.log("클릭됨");
+console.log("클릭됨");
 });
 
 클릭되면 함수가 실행된다.

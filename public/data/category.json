@@ -2,14 +2,14 @@
   {
     "id": 1,
     "category": "의류",
-    "itemName": "원피스",
+    "name": "원피스",
     "price": 1000,
     "quantity": 13
   },
   {
     "id": 2,
     "category": "의류",
-    "itemName": "청바지",
+    "name": "청바지",
     "price": 1000,
     "quantity": 13
   }

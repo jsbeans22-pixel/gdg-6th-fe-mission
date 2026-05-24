@@ -14,21 +14,27 @@ function Navbar() {
         <div className="flex gap-10 text-lg">
           <button
             onClick={() => navigate("/category")}
-            className={location.pathname === "/category" ? "font-bold text-blue-500" : ""}
+            className={
+              location.pathname === "/category" ? "font-bold text-blue-500" : ""
+            }
           >
             카테고리 필터링
           </button>
 
           <button
             onClick={() => navigate("/price")}
-            className={location.pathname === "/price" ? "font-bold text-blue-500" : ""}
+            className={
+              location.pathname === "/price" ? "font-bold text-blue-500" : ""
+            }
           >
             가격 범위 필터링
           </button>
 
           <button
             onClick={() => navigate("/sort")}
-            className={location.pathname === "/sort" ? "font-bold text-blue-500" : ""}
+            className={
+              location.pathname === "/sort" ? "font-bold text-blue-500" : ""
+            }
           >
             상품 정렬
           </button>

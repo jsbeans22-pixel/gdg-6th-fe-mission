@@ -31,20 +31,13 @@ function AdminPage() {
       <Navbar />
 
       <main className="mx-auto mt-16 w-[900px]">
-
         {/* 상품 등록 */}
         <section className="mb-24">
-          <h2 className="mb-8 text-3xl font-bold text-black">
-            상품 등록
-          </h2>
+          <h2 className="mb-8 text-3xl font-bold text-black">상품 등록</h2>
 
           <div className="rounded-xl border border-gray-400 p-10">
-
             <div className="grid grid-cols-[100px_1fr_100px_1fr] items-center gap-x-10 gap-y-8">
-
-              <label className="text-xl font-bold text-black">
-                상품명
-              </label>
+              <label className="text-xl font-bold text-black">상품명</label>
 
               <input
                 value={registerName}
@@ -53,9 +46,7 @@ function AdminPage() {
                 className="h-14 w-full rounded-lg border border-gray-400 px-5 text-lg outline-none"
               />
 
-              <label className="text-xl font-bold text-black">
-                수량
-              </label>
+              <label className="text-xl font-bold text-black">수량</label>
 
               <input
                 value={registerQuantity}
@@ -64,9 +55,7 @@ function AdminPage() {
                 className="h-14 w-full rounded-lg border border-gray-400 px-5 text-lg outline-none"
               />
 
-              <label className="text-xl font-bold text-black">
-                가격
-              </label>
+              <label className="text-xl font-bold text-black">가격</label>
 
               <input
                 value={registerPrice}
@@ -75,9 +64,7 @@ function AdminPage() {
                 className="h-14 w-full rounded-lg border border-gray-400 px-5 text-lg outline-none"
               />
 
-              <label className="text-xl font-bold text-black">
-                카테고리
-              </label>
+              <label className="text-xl font-bold text-black">카테고리</label>
 
               <input
                 value={registerCategory}
@@ -85,7 +72,6 @@ function AdminPage() {
                 placeholder="카테고리 선택"
                 className="h-14 w-full rounded-lg border border-gray-400 px-5 text-lg outline-none"
               />
-
             </div>
 
             <p className="mt-6 text-sm text-gray-400">
@@ -100,24 +86,16 @@ function AdminPage() {
                 등록
               </button>
             </div>
-
           </div>
         </section>
 
         {/* 재고 추가 */}
         <section className="mb-24">
-
-          <h2 className="mb-8 text-3xl font-bold text-black">
-            재고 추가
-          </h2>
+          <h2 className="mb-8 text-3xl font-bold text-black">재고 추가</h2>
 
           <div className="rounded-xl border border-gray-400 p-10">
-
             <div className="grid grid-cols-[100px_1fr_100px_1fr] items-center gap-x-10 gap-y-8">
-
-              <label className="text-xl font-bold text-black">
-                상품명
-              </label>
+              <label className="text-xl font-bold text-black">상품명</label>
 
               <input
                 value={stockName}
@@ -126,9 +104,7 @@ function AdminPage() {
                 className="h-14 w-full rounded-lg border border-gray-400 px-5 text-lg outline-none"
               />
 
-              <label className="text-xl font-bold text-black">
-                수량
-              </label>
+              <label className="text-xl font-bold text-black">수량</label>
 
               <input
                 value={stockQuantity}
@@ -136,7 +112,6 @@ function AdminPage() {
                 placeholder="0"
                 className="h-14 w-full rounded-lg border border-gray-400 px-5 text-lg outline-none"
               />
-
             </div>
 
             <div className="mt-8 flex justify-end">
@@ -147,24 +122,16 @@ function AdminPage() {
                 추가
               </button>
             </div>
-
           </div>
         </section>
 
         {/* 상품 삭제 */}
         <section className="mb-24">
-
-          <h2 className="mb-8 text-3xl font-bold text-black">
-            상품 삭제
-          </h2>
+          <h2 className="mb-8 text-3xl font-bold text-black">상품 삭제</h2>
 
           <div className="rounded-xl border border-gray-400 p-10">
-
             <div className="grid grid-cols-[100px_1fr] items-center gap-x-10">
-
-              <label className="text-xl font-bold text-black">
-                상품명
-              </label>
+              <label className="text-xl font-bold text-black">상품명</label>
 
               <input
                 value={deleteName}
@@ -172,7 +139,6 @@ function AdminPage() {
                 placeholder="상품명 입력..."
                 className="h-14 w-full rounded-lg border border-gray-400 px-5 text-lg outline-none"
               />
-
             </div>
 
             <div className="mt-8 flex justify-end">
@@ -183,10 +149,8 @@ function AdminPage() {
                 삭제
               </button>
             </div>
-
           </div>
         </section>
-
       </main>
     </div>
   );

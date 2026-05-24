@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
@@ -17,7 +16,7 @@ const router = createBrowserRouter([
   },
   {
     path: "category",
-    element: <CategoryPage />
+    element: <CategoryPage />,
   },
   {
     path: "/price",
@@ -30,7 +29,7 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     element: <AdminPage />,
-  }
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
